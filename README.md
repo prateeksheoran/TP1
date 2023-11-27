@@ -16,5 +16,6 @@ Enseash Tiny Shell is a simple command-line shell implemented in C. It provides 
    gcc enseash.c -o enseash_shell
    
 2. **Run the shell**
+   ```bash
    ./enseash
    
