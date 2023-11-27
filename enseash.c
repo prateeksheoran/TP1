@@ -10,7 +10,7 @@ void displayWelcomeMessage() {
 }
 
 void displayPrompt() {
-    const char prompt[] = "enseash> ";
+    const char prompt[] = "enseash % ";
     write(STDOUT_FILENO, prompt, sizeof(prompt) - 1);
 }
 
@@ -30,13 +30,10 @@ int main() {
             break;
         // Remove newline character at the end
         input[strcspn(input, "\n")] = '\0';
-
-        // Exit the shell if the user enters "exit"
-        if (strcmp(input, "exit") == 0) {
             break;
         }
     }
 
     return 0;
 }
-}
+
