@@ -1,6 +1,10 @@
-
-#include "functions.h"
-
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main(void){
     char commande[MAX_SIZE] = {0};
@@ -11,9 +15,7 @@ int main(void){
     int test;
     struct timespec timestart;
     struct timespec timestop;
-   
-   
-   // Welcome message
+  
     write(STDOUT_FILENO, HELLO, strlen(HELLO));
     write(STDOUT_FILENO, REGULAR_PROMPT, strlen(REGULAR_PROMPT));
    
@@ -54,7 +56,7 @@ int main(void){
             write(STDOUT_FILENO, ERR, strlen(ERR));
             kill(getpid(),SIGINT);
         } else {
-            //parent process
+    
             wait(&status);
             clock_gettime(CLOCK_REALTIME, &timestop);
             int time = (timestop.tv_nsec - timestart.tv_nsec)/1000000;
